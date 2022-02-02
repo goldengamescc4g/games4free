@@ -41,14 +41,64 @@ body {
   background-color: #1B264F;
 }
 
+.header--mobile {
+  background-color: #274690;
+  width: 100%;
+  z-index: 100;
+  padding: 1rem;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+
+  @media(max-width: 1024px) {
+    display: flex;
+  }
+
+  .logo {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+
+    a {
+      font-weight: 700;
+      font-size: 1.375rem;
+    }
+  }
+
+  .menu--icon {
+    display: flex;
+    align-self: flex-start;
+    background-color: #fff;
+    padding: .5rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    svg {
+      width: 24px;
+
+    }
+  }
+
+}
+
 .container {
   position: relative;
   padding: 0 1.5rem;
   display: grid;
   grid-template-columns: var(--tamanho--sidebar) 1fr;
   min-height: 100vh;
-}
 
+  @media (max-width: 1024px) {
+    margin-top: 90px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+  }
+}
 
 
 
@@ -64,6 +114,37 @@ body {
   z-index: 100;
   background-color: #274690;
   max-width: var(--tamanho--sidebar);
+
+  @media (max-width: 1024px) {
+    top: 71px;
+    height: auto;
+    padding: 0 1rem 2rem 1rem;
+    position: fixed;
+    max-width: 100%;
+    transform: translateY(-100vh);
+    transition: .3s ease;
+  }
+
+  .logo {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+
+    @media(max-width: 1024px) {
+      display: none;
+    }
+
+    a {
+      font-weight: 700;
+      font-size: 1.375rem;
+    }
+
+    p {
+      margin-top: .5rem;
+      font-size: .875rem;
+
+    }
+  }
 
   .menu--icon {
     display: flex;
@@ -83,6 +164,12 @@ body {
 
   .sidebar--menu {
     margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+
+    @media (max-width: 1024px) {
+      margin-top: 0;
+    }
 
     li {
 
@@ -93,10 +180,15 @@ body {
       a {
         display: inline-flex;
         align-items: center;
-        color: #fff;
+        color: #F5F3F5;
+        font-weight: 500;
         font-size: 1rem;
         padding: 0.5rem;
         border-radius: 36px;
+
+        &.link-ativo {
+          color: #576CA8;
+        }
 
         img {
           width: 24px;
@@ -114,13 +206,20 @@ body {
   padding: 4rem 0;
   position: relative;
 
+  @media(max-width: 1024px) {
+    padding: 3rem 0;
+  }
+
   .wrapper {
     display: grid;
     grid-template-columns: repeat(4, minmax(150px, 1fr));
     grid-column-gap: 2rem;
     grid-row-gap: 4rem;
-    height: 100%;
-    place-items: center;
+
+    @media (max-width: 1024px) {
+      grid-template-columns: repeat(2, minmax(150px, 1fr));
+      grid-row-gap: 2rem;
+    }
 
     @media (max-width: 540px) {
       display: flex;
@@ -132,15 +231,21 @@ body {
     .item {
       display: flex;
       flex-direction: column;
+      overflow: hidden;
       position: relative;
       border-radius: 4px;
       box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
       background-color: #fff;
+      transition: .3s ease;
+      cursor: pointer;
 
+      &:hover {
+        transform: translateY(-3px);
+      }
 
       &+.item {
         @media (max-width: 540px) {
-          margin-top: 4rem;
+          margin-top: 2rem;
         }
 
       }
@@ -184,7 +289,7 @@ body {
           padding-top: .5rem;
 
           .tipo {
-            background-color: #576CA8;
+            background-color: #b5b5b5;
             padding: .5rem;
             font-size: .75rem;
             border-radius: 4px;
@@ -237,11 +342,17 @@ body {
           align-items: center;
           justify-content: center;
           text-transform: uppercase;
-          max-width: 250px;
           width: 100%;
           padding: .75rem 1rem;
           color: #fff;
-          background-color: #576CA8;
+          background-color: #274690;
+          transition: .3s ease;
+
+          &:hover,
+          &:focus {
+            box-shadow: 0 0.5em 0.5em -0.4em #274690;
+            transform: translateY(-0.25em);
+          }
         }
       }
     }
@@ -250,6 +361,9 @@ body {
   .loader--container {
     margin: 0 auto;
     width: 100%;
+    width: 100%;
+    position: absolute;
+    inset: 0;
     display: none;
     justify-content: center;
     align-items: center;
@@ -303,8 +417,19 @@ body {
   color: #fff;
   height: 100%;
   font-size: 2rem;
+
+  @media (max-width: 1024px) {
+    font-size: 1.5rem;
+    text-align: center;
+
+  }
 }
 
 .error--message.temErro {
   display: flex;
+}
+
+.sidebar.filtro-show {
+  transform: translateX(0);
+
 }

@@ -82,9 +82,7 @@ const generateContent = (data) => {
     platforms
   }) => {
     return `
-    
         <div class="item">
-        <span class="plataforma">${platforms}</span>
           <div class="imagem--jogo">
             <img src="${image}">
           </div>
@@ -110,10 +108,33 @@ const generateContent = (data) => {
 
 elFiltros.forEach((el) => {
   el.addEventListener('click', (e) => {
+    elFiltros.forEach((link) => {
+      link.classList.remove('link-ativo')
+    })
     e.preventDefault();
+    e.target.classList.add('link-ativo')
     wrapperDiv.innerHTML = '';
     removeLoading()
     getResponseFiltered(el.dataset.plataforma)
 
   })
 })
+
+
+const filtroMobile = () => {
+  const iconeMobile = document.querySelector('#hamburguer');
+  const sideBarFiltro = document.querySelector('.sidebar')
+  const sideBarItems = document.querySelectorAll(".sidebar--menu li a")
+  iconeMobile.addEventListener("click", (evento) => {
+    sideBarFiltro.classList.toggle('filtro-show')
+  })
+
+  sideBarItems.forEach((item) => {
+    item.addEventListener('click', (evento) => {
+      sideBarFiltro.classList.remove('filtro-show')
+    })
+  })
+
+}
+
+filtroMobile()
