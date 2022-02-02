@@ -11,20 +11,33 @@
 
 <body>
   <div class="container">
-    <header class="menu--filtro">
-      <a href="#" data-plataforma="pc.ps4.ps5.xbox-one.xbox-series-xs">Todos</a>
-      <a href="#" data-plataforma="pc">PC</a>
-      <a href="#" data-plataforma="ps4">PS4</a>
-      <a href="#" data-plataforma="ps5">PS5</a>
-      <a href="#" data-plataforma="xbox-one">Xbox One</a>
-      <a href="#" data-plataforma="xbox-series-xs">Xbox One Series</a>
+    <div class="sidebar">
+      <!-- <button class="menu--icon">
+        <svg xmlns="http://www.w3.org/2000/svg" class="ionicon" viewBox="0 0 512 512">
+          <title>Menu</title>
+          <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="32"
+            d="M80 160h352M80 256h352M80 352h352" />
+        </svg>
+      </button> -->
+      <ul class="sidebar--menu">
+        <li><a href="#" data-plataforma="epic-games-store.gog.origin.steam">Todos</a></li>
+        <li><a href="#" data-plataforma="epic-games-store"><img src="assets/img/epic.svg">Epic Games</a></li>
+        <li><a href="#" data-plataforma="gog"><img src="assets/img/gog.svg">GOG</a></li>
+        <li><a href="#" data-plataforma="origin"><img src="assets/img/origin.svg">Origin</a></li>
+        <li><a href="#" data-plataforma="steam"><img src="assets/img/steam.svg">Steam</a></li>
+      </ul>
+    </div>
+    <div class="content">
 
-    </header>
-    <div class="wrapper">
+      <div class="wrapper">
+
+      </div>
+
+      <div class="loader--container ativo">
+        <span class="loader"></span>
+      </div>
     </div>
-    <div class="loader--container ativo">
-      <span class="loader"></span>
-    </div>
+
   </div>
 
   <script src="assets/js/main.js"></script>

@@ -1,5 +1,5 @@
 const wrapperDiv = document.querySelector('.wrapper')
-const elFiltros = document.querySelectorAll('.menu--filtro a')
+const elFiltros = document.querySelectorAll('.sidebar--menu li a')
 
 const removeLoading = () => {
   const spinner = document.querySelector('.loader--container');
@@ -9,7 +9,7 @@ const removeLoading = () => {
 
 async function getResponseAll() {
   try {
-    const response = await fetch(`https://gamerpower.p.rapidapi.com/api/giveaways?type=game`, {
+    const response = await fetch(`https://gamerpower.p.rapidapi.com/api/filter?type=game&platform=epic-games-store.gog.origin.steam`, {
       "method": "GET",
       "headers": {
         "x-rapidapi-host": "gamerpower.p.rapidapi.com",
@@ -38,7 +38,6 @@ async function getResponseFiltered(platform) {
   const data = await response.json()
   generateContent(data)
 
-
 }
 
 
@@ -53,16 +52,22 @@ const generateContent = (data) => {
     published_date,
     title,
     type,
-    description
+    description,
+    worth,
+    platforms
   }) => {
     return `
         <div class="item">
-        <span class="tipo">${type}</span>
+        <span class="plataforma">${platforms}</span>
           <div class="imagem--jogo">
             <img src="${image}">
           </div>
           <div class="informacoes--jogo">
             <h3 class="titulo">${title}</h3>
+            <div class="preco-nav">
+              <p class="preco">FREE <span>${worth}</span></p>
+              <span class="tipo">${type}</span>
+            </div>
             <p class="descricao">${description}</p>
           </div>
           <div class="btn--container">
@@ -78,7 +83,8 @@ const generateContent = (data) => {
 
 
 elFiltros.forEach((el) => {
-  el.addEventListener('click', () => {
+  el.addEventListener('click', (e) => {
+    e.preventDefault();
     wrapperDiv.innerHTML = '';
     removeLoading()
     getResponseFiltered(el.dataset.plataforma)
