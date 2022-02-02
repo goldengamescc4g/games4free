@@ -1,13 +1,20 @@
 const wrapperDiv = document.querySelector('.wrapper')
+const errorMessage = document.querySelector('.error--message')
 const elFiltros = document.querySelectorAll('.sidebar--menu li a')
 
-const removeLoading = () => {
+const removeLoading = (isLoading) => {
   const spinner = document.querySelector('.loader--container');
-  spinner.classList.remove('ativo');
+  if (isLoading) {
+    spinner.classList.add('ativo');
+
+  } else {
+    spinner.classList.remove('ativo');
+  }
 }
 
 
 async function getResponseAll() {
+  removeLoading(true)
   try {
     const response = await fetch(`https://gamerpower.p.rapidapi.com/api/filter?type=game&platform=epic-games-store.gog.origin.steam`, {
       "method": "GET",
@@ -17,8 +24,9 @@ async function getResponseAll() {
       }
     })
     const data = await response.json()
+    console.log(data)
     generateContent(data)
-    removeLoading()
+    removeLoading(false)
   } catch (err) {
 
   }
@@ -28,15 +36,33 @@ getResponseAll();
 
 
 async function getResponseFiltered(platform) {
-  const response = await fetch(`https://gamerpower.p.rapidapi.com/api/filter?type=game&platform=${platform}`, {
-    "method": "GET",
-    "headers": {
-      "x-rapidapi-host": "gamerpower.p.rapidapi.com",
-      "x-rapidapi-key": "59df7faf5emsh2cb45c52d4b33e3p18956fjsn99432fdbfb5d"
+  removeLoading(true)
+  try {
+    const response = await fetch(`https://gamerpower.p.rapidapi.com/api/filter?type=game&platform=${platform}`, {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": "gamerpower.p.rapidapi.com",
+        "x-rapidapi-key": "59df7faf5emsh2cb45c52d4b33e3p18956fjsn99432fdbfb5d"
+      }
+    })
+    const data = await response.json()
+    console.log(data)
+    if (data.status === 0) {
+      wrapperDiv.innerHTML = ''
+      errorMessage.classList.add('temErro')
+      errorMessage.innerHTML = 'Nenhum jogo grátis foi encontrado :(';
+      removeLoading(false)
+      return
     }
-  })
-  const data = await response.json()
-  generateContent(data)
+
+    errorMessage.classList.remove('temErro')
+    generateContent(data)
+    removeLoading(false)
+    errorMessage.innerHTML = '';
+
+  } catch (err) {
+
+  }
 
 }
 
@@ -44,7 +70,6 @@ async function getResponseFiltered(platform) {
 
 
 const generateContent = (data) => {
-  console.log(data)
   const mapData = data.map(({
     id,
     image,
@@ -57,6 +82,7 @@ const generateContent = (data) => {
     platforms
   }) => {
     return `
+    
         <div class="item">
         <span class="plataforma">${platforms}</span>
           <div class="imagem--jogo">
