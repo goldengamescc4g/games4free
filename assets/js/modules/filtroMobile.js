@@ -1,4 +1,4 @@
-export default function filtroMobile() {
+export default async function filtroMobile() {
   const filtroMobile = () => {
     const iconeMobile = document.querySelector('#hamburguer');
     const obody = document.body;

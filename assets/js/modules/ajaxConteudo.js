@@ -1,8 +1,10 @@
-export default function ajaxConteudo() {
+export default async function ajaxConteudo() {
   const wrapperDiv = document.querySelector('.wrapper')
   const errorMessage = document.querySelector('.error--message')
   const elFiltros = document.querySelectorAll('.sidebar--menu li a')
   const textoLoja = document.querySelector('.nome--loja')
+  const modalGame = document.querySelector('.modal--game')
+  const obody = document.body;
 
   const removeLoading = (isLoading) => {
     const spinner = document.querySelector('.loader--container');
@@ -78,7 +80,8 @@ export default function ajaxConteudo() {
       platforms
     }) => {
       return `
-        <div class="item">
+        <div class="item" data-id="${id}">
+
           <div class="imagem--jogo">
             <img src="${image}">
           </div>
@@ -89,6 +92,7 @@ export default function ajaxConteudo() {
               <span class="tipo">${type}</span>
             </div>
             <p class="descricao">${description}</p>
+            <button type="button" class="ver--mais">More info</button>
           </div>
           <div class="btn--container">
             <a href="${open_giveaway_url}" target="_blank" class="btn--pegar">
@@ -100,6 +104,8 @@ export default function ajaxConteudo() {
     wrapperDiv.innerHTML = mapData;
 
   }
+
+
 
   const activeFilter = () => {
     elFiltros.forEach((el) => {
@@ -137,10 +143,6 @@ export default function ajaxConteudo() {
   }
 
 
-
-
-
   getResponseAll();
   activeFilter();
-
 }
