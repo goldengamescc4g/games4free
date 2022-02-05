@@ -20,7 +20,7 @@ export default async function ajaxConteudo() {
   async function getResponseAll() {
     removeLoading(true)
     try {
-      const response = await fetch(`https://gamerpower.p.rapidapi.com/api/filter?type=game&platform=epic-games-store.gog.origin.steam`, {
+      const response = await fetch(`https://gamerpower.p.rapidapi.com/api/filter?platform=epic-games-store.gog.origin.steam`, {
         "method": "GET",
         "headers": {
           "x-rapidapi-host": "gamerpower.p.rapidapi.com",
@@ -39,7 +39,7 @@ export default async function ajaxConteudo() {
   async function getResponseFiltered(platform) {
     removeLoading(true)
     try {
-      const response = await fetch(`https://gamerpower.p.rapidapi.com/api/filter?type=game&platform=${platform}`, {
+      const response = await fetch(`https://gamerpower.p.rapidapi.com/api/filter?platform=${platform}`, {
         "method": "GET",
         "headers": {
           "x-rapidapi-host": "gamerpower.p.rapidapi.com",
