@@ -6,6 +6,8 @@ export default async function ajaxConteudo() {
   const modalGame = document.querySelector('.modal--game')
   const obody = document.body;
 
+
+
   const removeLoading = (isLoading) => {
     const spinner = document.querySelector('.loader--container');
     if (isLoading) {
@@ -20,7 +22,7 @@ export default async function ajaxConteudo() {
   async function getResponseAll() {
     removeLoading(true)
     try {
-      const response = await fetch(`https://gamerpower.p.rapidapi.com/api/filter?platform=epic-games-store.gog.origin.steam`, {
+      const response = await fetch(`https://gamerpower.p.rapidapi.com/api/filter?type=game&platform=epic-games-store.gog.origin.steam`, {
         "method": "GET",
         "headers": {
           "x-rapidapi-host": "gamerpower.p.rapidapi.com",
@@ -39,7 +41,7 @@ export default async function ajaxConteudo() {
   async function getResponseFiltered(platform) {
     removeLoading(true)
     try {
-      const response = await fetch(`https://gamerpower.p.rapidapi.com/api/filter?platform=${platform}`, {
+      const response = await fetch(`https://gamerpower.p.rapidapi.com/api/filter?type=game&platform=${platform}`, {
         "method": "GET",
         "headers": {
           "x-rapidapi-host": "gamerpower.p.rapidapi.com",
@@ -68,6 +70,7 @@ export default async function ajaxConteudo() {
 
 
   const generateContent = (data) => {
+
     const mapData = data.map(({
       id,
       image,
@@ -79,6 +82,7 @@ export default async function ajaxConteudo() {
       worth,
       platforms
     }) => {
+
       return `
         <div class="item" data-id="${id}">
 
@@ -102,6 +106,7 @@ export default async function ajaxConteudo() {
       `
     }).join('')
     wrapperDiv.innerHTML = mapData;
+
 
   }
 
@@ -141,6 +146,8 @@ export default async function ajaxConteudo() {
       })
     })
   }
+
+
 
 
   getResponseAll();
