@@ -137,12 +137,12 @@ body {
 
   @media (max-width: 1024px) {
     position: fixed;
-    top: 72px;
+    top: 62px;
     bottom: 0;
     right: 0;
     overflow-x: hidden;
     overflow-y: auto;
-    height: calc(100vh - 71px);
+    height: calc(100vh - 62px);
     padding: 0 1rem 2rem 1rem;
     max-width: 100%;
     transform: translateX(100vw);
