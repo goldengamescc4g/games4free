@@ -1,6 +1,53 @@
+.header--mobile {
+  background-color: #274690;
+  width: 100%;
+  z-index: 100;
+  padding: 2rem;
+  display: none;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  top: 0;
+  transition: .3s ease;
+
+
+  @media(max-width: 1024px) {
+    display: flex;
+
+  }
+
+  .logo {
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    display: inline-flex;
+    font-weight: 600;
+    font-size: 2rem;
+
+
+
+  }
+
+  .menu--icon {
+    display: flex;
+    align-self: flex-start;
+    background-color: #fff;
+    padding: .5rem;
+    border: none;
+    outline: none;
+    cursor: pointer;
+
+    svg {
+      width: 24px;
+
+    }
+  }
+
+}
+
 .sidebar {
   width: 100%;
-  padding: 2rem;
+  padding: 32px;
   position: fixed;
   left: 0;
   top: 0;
@@ -13,12 +60,12 @@
 
   @media (max-width: 1024px) {
     position: fixed;
-    top: 62px;
+    top: 88px;
     bottom: 0;
     right: 0;
     overflow-x: hidden;
     overflow-y: auto;
-    height: calc(100vh - 62px);
+    height: calc(100vh - 88px);
     padding: 0 1rem 2rem 1rem;
     max-width: 100%;
     transform: translateX(100vw);

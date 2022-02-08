@@ -67,51 +67,7 @@ body {
   transition: background .3s ease;
 }
 
-.header--mobile {
-  background-color: #274690;
-  width: 100%;
-  z-index: 100;
-  padding: 1rem;
-  display: none;
-  justify-content: space-between;
-  align-items: center;
-  z-index: 1000;
-  top: 0;
-  transition: .3s ease;
 
-
-  @media(max-width: 1024px) {
-    display: flex;
-
-  }
-
-  .logo {
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-
-    a {
-      font-weight: 700;
-      font-size: 1.375rem;
-    }
-  }
-
-  .menu--icon {
-    display: flex;
-    align-self: flex-start;
-    background-color: #fff;
-    padding: .5rem;
-    border: none;
-    outline: none;
-    cursor: pointer;
-
-    svg {
-      width: 24px;
-
-    }
-  }
-
-}
 
 .container {
   position: relative;
