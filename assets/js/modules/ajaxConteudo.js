@@ -1,5 +1,3 @@
-
-
 export default async function ajaxConteudo() {
   const wrapperDiv = document.querySelector('.wrapper')
   const errorMessage = document.querySelector('.error--message')
@@ -34,15 +32,15 @@ export default async function ajaxConteudo() {
         }
       })
       const data = await response.json()
-      setTimeout(()=>{
+      setTimeout(() => {
         removeLoading(false)
         generateContent(data)
-   
-      },500)
+
+      }, 500)
 
 
     } catch (err) {
-        console.log(err)
+      console.log(err)
     }
   }
 
@@ -60,15 +58,18 @@ export default async function ajaxConteudo() {
       if (data.status === 0) {
         wrapperDiv.innerHTML = ''
         errorMessage.classList.add('temErro')
-        errorMessage.innerHTML = 'No free games or DLC found :(';
-        removeLoading(false)
+        setTimeout(() => {
+          removeLoading(false)
+          errorMessage.innerHTML = 'No free games or DLC found :(';
+        }, 500)
+
         return
       }
       errorMessage.classList.remove('temErro')
-      setTimeout(()=>{
+      setTimeout(() => {
         generateContent(data)
         removeLoading(false)
-      },500)
+      }, 500)
       errorMessage.innerHTML = '';
 
 
