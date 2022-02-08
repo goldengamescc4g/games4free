@@ -526,9 +526,10 @@ body.filtro-show {
   }
 
 
+
   .social {
     display: flex;
-    margin-top: 1rem;
+  margin: 1rem 0;
 
     a {
       display: inline-flex;
@@ -543,6 +544,13 @@ body.filtro-show {
         max-width: 32px;
       }
     }
+  }
+  .api-dedicacao{
+    font-size: .625rem;
+    a{
+      color: red;
+    }
+
   }
 }
 
