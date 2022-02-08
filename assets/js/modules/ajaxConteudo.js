@@ -37,7 +37,7 @@ export default async function ajaxConteudo() {
 
 
     } catch (err) {
-
+        console.log(err)
     }
   }
 
@@ -52,7 +52,6 @@ export default async function ajaxConteudo() {
         }
       })
       const data = await response.json()
-      console.log(data)
       if (data.status === 0) {
         wrapperDiv.innerHTML = ''
         errorMessage.classList.add('temErro')
@@ -69,7 +68,7 @@ export default async function ajaxConteudo() {
 
 
     } catch (err) {
-
+      console.log(err)
     }
 
   }
