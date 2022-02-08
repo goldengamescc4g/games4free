@@ -4,7 +4,18 @@ export default async function ajaxModal() {
   const modalGame = document.querySelector('.modal--game')
   const obody = document.body;
 
+  const removeLoading = (isLoading) => {
+    const loadingContainer = document.querySelector('.loader--modal')
+    if (isLoading) {
+      loadingContainer.classList.add("ativo")
+    } else {
+      loadingContainer.classList.remove("ativo")
+
+    }
+  }
+
   async function getResponseModal(id) {
+    removeLoading(true)
     try {
       const response = await fetch(`https://gamerpower.p.rapidapi.com/api/giveaway?id=${id}`, {
         "method": "GET",
@@ -16,8 +27,11 @@ export default async function ajaxModal() {
       })
 
       const data = await response.json()
-      console.log(data)
-      generateContentModal(data)
+      setTimeout(() => {
+        removeLoading(false)
+        generateContentModal(data);
+      }, 500)
+
     } catch (err) {
       console.log(err)
     }

@@ -1,3 +1,5 @@
+
+
 export default async function ajaxConteudo() {
   const wrapperDiv = document.querySelector('.wrapper')
   const errorMessage = document.querySelector('.error--message')
@@ -19,6 +21,8 @@ export default async function ajaxConteudo() {
   }
 
 
+
+
   async function getResponseAll() {
     removeLoading(true)
     try {
@@ -33,6 +37,7 @@ export default async function ajaxConteudo() {
       setTimeout(()=>{
         removeLoading(false)
         generateContent(data)
+   
       },500)
 
 
@@ -111,8 +116,6 @@ export default async function ajaxConteudo() {
       `
     }).join('')
     wrapperDiv.innerHTML = mapData;
-
-
   }
 
 
@@ -148,10 +151,10 @@ export default async function ajaxConteudo() {
       })
     })
   }
-
-
-
-
   getResponseAll();
   activeFilter();
+
+
+
+
 }
