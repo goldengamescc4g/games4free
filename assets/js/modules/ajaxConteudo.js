@@ -30,9 +30,12 @@ export default async function ajaxConteudo() {
         }
       })
       const data = await response.json()
-      console.log(data)
-      generateContent(data)
-      removeLoading(false)
+      setTimeout(()=>{
+        removeLoading(false)
+        generateContent(data)
+      },500)
+
+
     } catch (err) {
 
     }
@@ -58,9 +61,12 @@ export default async function ajaxConteudo() {
         return
       }
       errorMessage.classList.remove('temErro')
-      generateContent(data)
-      removeLoading(false)
+      setTimeout(()=>{
+        generateContent(data)
+        removeLoading(false)
+      },500)
       errorMessage.innerHTML = '';
+
 
     } catch (err) {
 
@@ -140,9 +146,6 @@ export default async function ajaxConteudo() {
             textoLoja.innerHTML = 'Steam';
             break;
         }
-
-
-
       })
     })
   }
