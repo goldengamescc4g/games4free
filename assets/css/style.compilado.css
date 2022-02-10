@@ -100,8 +100,8 @@
     max-width: 100%;
     -webkit-transform: translateX(100vw);
             transform: translateX(100vw);
-    -webkit-transition: 0.3s ease;
-    transition: 0.3s ease;
+    -webkit-transition: 0.3s ease 0.2s;
+    transition: 0.3s ease 0.2s;
   }
 }
 .sidebar .logo {
