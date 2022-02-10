@@ -30,21 +30,6 @@
 .header--mobile .logo img {
   max-width: 180px;
 }
-.header--mobile .menu--icon {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-item-align: start;
-      align-self: flex-start;
-  background-color: #fff;
-  padding: 0.5rem;
-  border: none;
-  outline: none;
-  cursor: pointer;
-}
-.header--mobile .menu--icon svg {
-  width: 24px;
-}
 .header--mobile .icone--menu {
   border-top: 2px solid #fff;
   width: 32px;
@@ -227,6 +212,11 @@
   color: #f5f3f5;
   font-size: 0.75em;
 }
+@media (max-width: 1024px) {
+  .sidebar .footer p {
+    font-size: 0.875rem;
+  }
+}
 .sidebar .footer .social {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -250,8 +240,10 @@
 .sidebar .footer .social a img {
   max-width: 32px;
 }
-.sidebar .footer .api-dedicacao {
-  font-size: 0.625rem;
+@media (max-width: 1024px) {
+  .sidebar .footer .api-dedicacao {
+    font-size: 0.75rem;
+  }
 }
 .sidebar .footer .api-dedicacao a {
   color: red;

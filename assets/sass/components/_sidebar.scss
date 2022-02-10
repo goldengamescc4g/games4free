@@ -23,20 +23,6 @@
     }
   }
 
-  .menu--icon {
-    display: flex;
-    align-self: flex-start;
-    background-color: #fff;
-    padding: .5rem;
-    border: none;
-    outline: none;
-    cursor: pointer;
-
-    svg {
-      width: 24px;
-
-    }
-  }
 
   .icone--menu {
     border-top: 2px solid #fff;
@@ -200,10 +186,10 @@
     p {
       color: #f5f3f5;
       font-size: .75em;
-
+      @media(max-width: 1024px){
+          font-size: .875rem;
+      }
     }
-
-
 
     .social {
       display: flex;
@@ -225,8 +211,9 @@
     }
 
     .api-dedicacao {
-      font-size: .625rem;
-
+      @media(max-width: 1024px){
+        font-size: .75rem;
+    }
       a {
         color: red;
       }
