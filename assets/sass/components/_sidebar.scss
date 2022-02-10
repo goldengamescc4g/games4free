@@ -2,7 +2,7 @@
   background-color: #274690;
   width: 100%;
   z-index: 100;
-  padding: 2rem;
+  padding: 2rem 1.5rem;
   display: none;
   justify-content: space-between;
   align-items: center;
@@ -17,12 +17,9 @@
   }
 
   .logo {
-    color: #fff;
-    display: flex;
-    flex-direction: column;
-    display: inline-flex;
-    font-weight: 600;
-    font-size: 2rem;
+    img{
+      max-width: 180px;
+    }
   }
 
   .menu--icon {
@@ -39,6 +36,29 @@
 
     }
   }
+
+  .icone--menu {
+    border-top: 2px solid #fff;
+    width: 32px;
+    display: block;
+    position: relative;
+    cursor: pointer;
+    z-index: 101;
+
+    &::after,
+    &::before {
+        content: "";
+        display: block;
+        background: #fff;
+        width: 32px;
+        height: 2px;
+        margin-top: 8px;
+        position: relative;
+        transition: transform .2s ease;
+        will-change: transform;
+        border-radius: 8px;
+    }
+      }
 
 }
 
@@ -226,4 +246,20 @@ body.filtro-show {
     transform: translateX(0);
 
   }
+
+    
+  .icone--menu {
+  border-top: transparent !important;
+}
+
+  .icone--menu::after {
+  transform: rotate(135deg);
+  top: -10px;
+}
+
+  .icone--menu::before {
+  transform: rotate(-135deg);
+}
+
+
 }
