@@ -129,11 +129,12 @@
 
   .sidebar--menu {
     height: 100%;
-    margin-top: 2rem;
+    margin-top: 4rem;
     display: flex;
     flex-direction: column;
 
     @media (max-width: 1024px) {
+      margin-top: 2rem;
       align-items: center;
     }
 
