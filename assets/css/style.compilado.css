@@ -23,6 +23,10 @@
     display: flex;
   }
 }
+.header--mobile .logo {
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
 .header--mobile .logo img {
   max-width: 180px;
 }
@@ -255,6 +259,10 @@
 body.filtro-show .header--mobile {
   position: fixed;
   background-color: #576ca8;
+}
+body.filtro-show .header--mobile .logo {
+  -webkit-transform: translateX(-100vw);
+          transform: translateX(-100vw);
 }
 body.filtro-show .sidebar {
   background-color: #576ca8;
