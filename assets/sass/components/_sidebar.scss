@@ -213,3 +213,17 @@
   }
 
 }
+
+
+body.filtro-show {
+  .header--mobile {
+    position: fixed;
+    background-color: #576ca8;
+  }
+
+  .sidebar {
+    background-color: #576ca8;
+    transform: translateX(0);
+
+  }
+}
