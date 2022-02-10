@@ -133,7 +133,7 @@ export default async function ajaxConteudo() {
         getResponseFiltered(el.dataset.plataforma)
         switch (el.dataset.plataforma) {
           case 'epic-games-store.gog.origin.steam':
-            textoLoja.innerHTML = 'All stores';
+            textoLoja.innerHTML = 'Todas as plataformas';
             break;
           case 'epic-games-store':
             textoLoja.innerHTML = 'Epic Games';
