@@ -96,7 +96,6 @@ export default async function ajaxConteudo() {
 
       return `
         <div class="item" data-id="${id}">
-
           <div class="imagem--jogo">
             <img src="${image}">
           </div>
