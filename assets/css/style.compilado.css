@@ -210,7 +210,7 @@
 }
 .sidebar .footer p {
   color: #f5f3f5;
-  font-size: 0.75em;
+  font-size: 0.75rem;
 }
 @media (max-width: 1024px) {
   .sidebar .footer p {
@@ -239,6 +239,9 @@
 }
 .sidebar .footer .social a img {
   max-width: 32px;
+}
+.sidebar .footer .api-dedicacao {
+  font-size: 0.675rem;
 }
 @media (max-width: 1024px) {
   .sidebar .footer .api-dedicacao {
