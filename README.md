@@ -3,7 +3,7 @@
 <p>Uma dashboard que reúne jogos grátis que plataformas como Epic Games, Steam, Origin e GOG estão distribuindo gratuitamente aos usuários.</p>
 <p>A dashboard foi desenvolvida utilizando: HTML, SASS e Javascript consumindo a API Game Power, para pegar os dados em tempo real.</p>
 
-![Dashboard Games4free](chrome_ykXm5vorI4.gif)
+![Dashboard Games4free](preview.gif)
 
 <h2>Melhorias e novidades implementadas no projeto: </h2>
 
